@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: "coral",
     paddingTop: 30,
-    height: 90,
+    height: 80,
   },
   logo: {
     textAlign: "center",
