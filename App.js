@@ -1,7 +1,17 @@
 import React, { useState } from "react";
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import {
+  FlatList,
+  Keyboard,
+  StyleSheet,
+  Text,
+  TouchableWithoutFeedback,
+  View,
+} from "react-native";
 import Header from "./components/header";
 import TodoItems from "./components/todoItems";
+import TodoForm from "./components/todoForm";
+import SandBox from "./components/sandbox";
+
 export default function App() {
   const [todos, settodos] = useState([
     {
@@ -21,30 +31,44 @@ export default function App() {
       content: "I wanna rest",
     },
   ]);
-  const handleDelete = (id) => {
+  const DeleteTodo = (id) => {
     settodos((prevTodos) => {
       return prevTodos.filter((todo) => todo.id !== id);
     });
   };
+  const AddTodo = (content) => {
+    settodos((prevTodos) => {
+      return [...prevTodos, { content, id: Math.random().toString() }];
+    });
+  };
   return (
     <View style={styles.container}>
-      <Header />
-      <View>
-        <FlatList
-          data={todos}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <TodoItems item={item} handleDelete={handleDelete} />
-          )}
-        />
-      </View>
+      <SandBox />
     </View>
+
+    // <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+    //   <View style={styles.container}>
+    //     <Header />
+    //     <TodoForm AddTodo={AddTodo} />
+    //     <View>
+    //       <FlatList
+    //         data={todos}
+    //         keyExtractor={(item) => item.id}
+    //         renderItem={({ item }) => (
+    //           <TodoItems item={item} DeleteTodo={DeleteTodo} />
+    //         )}
+    //       />
+    //     </View>
+    //   </View>
+    // </TouchableWithoutFeedback>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 60,
+    backgroundColor: "#ddd",
 
     // alignItems: "center",
     //justifyContent: "center",

@@ -1,10 +1,10 @@
 import React from "react";
 import { Text, TouchableOpacity, View, StyleSheet } from "react-native";
 
-function TodoItems({ item, handleDelete }) {
+function TodoItems({ item, DeleteTodo }) {
   return (
     <View style={styles.todoCard}>
-      <TouchableOpacity onPress={() => handleDelete(item.id)}>
+      <TouchableOpacity onPress={() => DeleteTodo(item.id)}>
         <Text style={styles.todoCardText}>{item.content}</Text>
       </TouchableOpacity>
     </View>
