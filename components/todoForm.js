@@ -11,7 +11,6 @@ function TodoForm({ AddTodo }) {
   const handleSubmit = () => {
     if (state.length > 3) {
       AddTodo(state);
-      setstate("");
     } else {
       Alert.alert("OOPS!", "Todo must be greater than 3 characters");
       [{ text: "Understood", onPress: () => console.log("understood") }];

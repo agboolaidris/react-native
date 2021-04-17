@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
   todoCard: {
     marginTop: 20,
     marginHorizontal: 10,
+    flex: 1,
   },
   todoCardText: {
     fontWeight: "bold",

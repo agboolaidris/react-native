@@ -42,35 +42,34 @@ export default function App() {
     });
   };
   return (
-    <View style={styles.container}>
-      <SandBox />
-    </View>
+    // <View></View>
 
-    // <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-    //   <View style={styles.container}>
-    //     <Header />
-    //     <TodoForm AddTodo={AddTodo} />
-    //     <View>
-    //       <FlatList
-    //         data={todos}
-    //         keyExtractor={(item) => item.id}
-    //         renderItem={({ item }) => (
-    //           <TodoItems item={item} DeleteTodo={DeleteTodo} />
-    //         )}
-    //       />
-    //     </View>
-    //   </View>
-    // </TouchableWithoutFeedback>
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      <View style={styles.container}>
+        <Header />
+        <TodoForm AddTodo={AddTodo} />
+        <View style={styles.todoListWrapper}>
+          <FlatList
+            data={todos}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+              <TodoItems item={item} DeleteTodo={DeleteTodo} />
+            )}
+          />
+        </View>
+      </View>
+    </TouchableWithoutFeedback>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 60,
     backgroundColor: "#ddd",
-
     // alignItems: "center",
     //justifyContent: "center",
+  },
+  todoListWrapper: {
+    flex: 1,
   },
 });
