@@ -1,12 +1,14 @@
 import React from "react";
+import { MaterialIcons } from "@expo/vector-icons";
 import { Text, TouchableOpacity, View, StyleSheet } from "react-native";
 
 function TodoItems({ item, DeleteTodo }) {
   return (
     <View style={styles.todoCard}>
       <TouchableOpacity onPress={() => DeleteTodo(item.id)}>
-        <Text style={styles.todoCardText}>{item.content}</Text>
+        <MaterialIcons name="delete" size={18} color="coral" />
       </TouchableOpacity>
+      <Text style={styles.todoCardText}>{item.content}</Text>
     </View>
   );
 }
@@ -16,14 +18,16 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginHorizontal: 10,
     flex: 1,
-  },
-  todoCardText: {
-    fontWeight: "bold",
-    padding: 10,
+    flexDirection: "row",
     borderWidth: 1,
     borderStyle: "dashed",
     borderColor: "gray",
     borderRadius: 20,
+    padding: 10,
+  },
+  todoCardText: {
+    fontWeight: "bold",
+    marginLeft: 19,
   },
 });
 
